@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Import fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css"
+        integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
+    <!-- Import jquery -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <!-- Import flag icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css"
+        integrity="sha256-0n6YDYIexWJmHyTKtRRHTXvoanQrXpFfpsfv0h53qvk=" crossorigin="anonymous" />
+    <!-- Import Roboto font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Authentification</title>
+</head>
+
+
+<body>
+    <div class="container">
+        <!-- Logo mobile (au-dessus de l'image) -->
+        <div id="logo-mobile">
+            <a href="https://www.unige.ch/">
+                <img src="./img/logo.png" alt="UNIGE logo">
+            </a>
+        </div>
+
+        <!-- Image de présentation -->
+        <div id="image">
+
+        </div>
+        <div id="login">
+            <!-- Logo desktop (à droite de l'image) -->
+            <div id="logo">
+                <a href="https://www.unige.ch/">
+                    <img src="./img/logo.png" alt="UNIGE logo">
+                </a>
+            </div>
+
+            <!-- Inputs du login -->
+            <div id="form">
+                <form action="" class="login-form">
+                    <div class="form-control">
+                        <input type="text" name="name" id="name" placeholder="Identifiant ..." />
+                    </div>
+                    <div class="form-control">
+                        <input type="text" name="password" id="password" placeholder="Mot de passe ..." />
+                    </div>
+                    <div id="form-help">
+                        <span lang="fr"><a href="#">Mot de passe oublié?</a></span>
+                        <span lang="fr"><a href="#">Besoin d'aide?</a></span>
+
+                        <span lang="en"><a href="#">Password forgotten?</a></span>
+                        <span lang="en"><a href="#">Need help?</a></span>
+                    </div>
+                    <input type="submit" value="LOGIN" id="submit" />
+                </form>
+            </div>
+
+            <!-- Remarque -->
+            <div id="important">
+                <i class="fas fa-exclamation-circle fa-3x"></i>
+                <p><span lang="fr">
+                        Remarque : Lorsque vous aurez terminé d’utiliser ce service, et pour des raisons de sécurité,
+                        veuillez penser à fermer tous les onglets et quitter le navigateur ! <a href="#">Pourquoi?</a>
+                    </span>
+                    <span lang="en">
+                        Note : When you are done accessing this service, for security reasons first close all tabs then
+                        quit your web browser! <a href="#">Why?</a>
+                    </span>
+                <p>
+            </div>
+
+            <!-- SWITCHaai -->
+            <footer>
+                <span class="flag-icon flag-icon-gb" onclick="changeLanguage()"></span>
+                <span class="flag-icon flag-icon-fr" onclick="changeLanguage()"></span>
+                <a href="#"><img src="./img/switchaai-logo.png" alt="SWITCHaai logo"></a>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Script pour changer la langue de la page -->
+    <script>
+        $('[lang="en"]').hide();
+        $('[class="flag-icon flag-icon-fr"]').hide();
+        function changeLanguage() {
+            switch (document.documentElement.lang) {
+                case "fr":
+                    document.documentElement.lang = "en";
+                    $('[class="flag-icon flag-icon-gb"]').hide();
+                    $('[class="flag-icon flag-icon-fr"]').show();
+                    $('[lang="fr"]').hide();
+                    $('[lang="en"]').show();
+                    document.getElementById("name").placeholder = "Identifier ...";
+                    document.getElementById("password").placeholder = "Password ...";
+                    break;
+                case "en":
+                    document.documentElement.lang = "fr";
+                    $('[class="flag-icon flag-icon-gb"]').show();
+                    $('[class="flag-icon flag-icon-fr"]').hide();
+                    $('[lang="en"]').hide();
+                    $('[lang="fr"]').show();
+                    document.getElementById("name").placeholder = "Identifiant ...";
+                    document.getElementById("password").placeholder = "Mot de passe ...";
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>
